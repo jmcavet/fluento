@@ -31,8 +31,6 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-
-    /* transition: background-color 2.5s; */
 }
 
 html {font-size: 100%}
