@@ -1,10 +1,10 @@
 import tw from "tailwind-styled-components";
 
 const sizes = {
-  small: "text-xl px-4 py-4 uppercase bold-semibold",
-  medium: "text-3xl px-6 py-6 bold-medium",
-  large: "text-4xl px-10 py-8 bold-medium",
-  full: "text-3xl py-6 py-6 bold-medium w-full",
+  small: "text-sm px-4 py-4 uppercase bold-semibold",
+  medium: "text-base px-6 py-6 bold-medium",
+  large: "text-2xl px-10 py-8 bold-medium",
+  full: "text-2xl py-6 py-6 bold-medium w-full",
 };
 
 const variations = {

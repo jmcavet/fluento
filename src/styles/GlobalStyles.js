@@ -35,13 +35,12 @@ const GlobalStyles = createGlobalStyle`
     /* transition: background-color 2.5s; */
 }
 
-html {font-size: 62.5%}
+/* html {font-size: 62.5%} */
+html {font-size: 100%}
 
 body {
     font-family: "Poppins", sans-serif;
-    /* background-color: #e5e8ee; */
     color: var(--color-grey-700);
-    /* transition: color 0.5s, background-color 0.5s; */
     min-height: 100vh;
     line-height: 1.5;
     font-size: 1.6rem;
