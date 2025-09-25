@@ -35,7 +35,6 @@ const GlobalStyles = createGlobalStyle`
     /* transition: background-color 2.5s; */
 }
 
-/* html {font-size: 62.5%} */
 html {font-size: 100%}
 
 body {
