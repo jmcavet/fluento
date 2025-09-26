@@ -1,8 +1,8 @@
 import tw from "tailwind-styled-components";
 
 const sizes = {
-  small: "text-sm px-4 py-4 uppercase bold-semibold",
-  medium: "text-base px-6 py-6 bold-medium",
+  small: "text-sm px-4 py-3 uppercase font-medium md:px-5 md:py-3 md:text-base",
+  medium: "text-base px-6 py-3 font-semibold",
   large: "text-2xl px-10 py-8 bold-medium",
   full: "text-2xl py-6 py-6 bold-medium w-full",
 };
@@ -10,7 +10,7 @@ const sizes = {
 const variations = {
   primary: "bg-primary-500 text-neutral-0 hover:bg-primary-600",
   primaryOutlined:
-    "bg-transparent dark:text-neutral-100 border-[1px] dark:border-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-700",
+    "bg-transparent border-[1px] border-neutral-300 hover:opacity-80 dark:text-neutral-100 dark:border-neutral-100 dark:hover:bg-neutral-700",
   accent: "bg-warning-500 text-neutral-0 hover:bg-warning-600",
   danger:
     "bg-error-500 text-neutral-0 hover:bg-error-600 dark:bg-error-500 dark:hover:bg-error-500",
@@ -25,7 +25,7 @@ const isDisabled = {
 
 const Button = tw.button`${(props) => sizes[props.size]} ${(props) =>
   variations[props.variation]} ${(props) => isDisabled[props.disabled]}
-  flex items-center justify-center gap-4 rounded-xl shadow-xl cursor-pointer`;
+  flex items-center justify-center gap-4 rounded-lg shadow-md cursor-pointer`;
 
 Button.defaultProps = {
   variation: "primary",

@@ -5,17 +5,26 @@ import LogoSVG from "../../assets/icons/logo.svg";
 
 const MainContainer = tw.div`flex flex-col`;
 
-const Header = tw.div`bg-neutral-900 text-neutral-0 h-28 px-8 flex items-center justify-between`;
+const Header = tw.div`bg-neutral-900 text-neutral-0 h-16 px-8 flex items-center justify-between`;
 const CallToAction = tw.div`flex items-center justify-end gap-8`;
 
-const MainContent = tw.div`bg-neutral-100 w-full pt-8 pb-32`;
+const MainContent = tw.div`bg-neutral-100 w-full pt-8 pb-28`;
 const Hero = tw.div`flex flex-col gap-16 mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8`;
-const CatchPhrase = tw.p`text-4xl leading-[4.5rem] text-center px-8 mb-8`;
-const Message = tw.p`text-2xl text-center leading-[2.8rem]`;
-const Section = tw.div`w-full py-24 flex gap-6`;
-const SectionContent = tw.div`mx-auto w-full max-w-5xl px-4 sm:px-6 lg:px-8`;
-const SectionHeader = tw.div`text-3xl font-bold mb-4`;
-const SectionParagraph = tw.div`text-base leading-relaxed`;
+const CatchPhrase = tw.p`text-3xl leading-tight font-bold text-center px-8 mb-4 md:text-5xl md:leading-snug`;
+const Message = tw.p`text-lg text-center leading-relaxed md:text-xl md:mt-6`;
+
+const Section = tw.div`px-4 py-12`;
+const SectionContent = tw.div`flex flex-col items-center gap-8 sm:flex-row sm:gap-12`;
+const SectionHeader = tw.h2`text-2xl font-bold mb-4 tracking-tight leading-snug md:text-3xl lg:text-4xl`;
+const SectionParagraph = tw.div`text-base leading-relaxed md:text-lg lg:text-xl`;
+
+const SectionImageContainer = tw.div`w-full sm:w-1/2 flex justify-center`;
+const SectionImage = tw.img`w-full max-w-sm rounded-xl shadow-md`;
+
+const SectionMessageContainer = tw.div`w-full sm:w-1/2 text-left sm:text-left`;
+const SectionMessageTitle = tw.h2`text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl`;
+const SectionMessageText = tw.p`mt-3 text-base text-gray-600 leading-relaxed md:text-lg lg:text-xl`;
+
 const Footer = tw.div`bg-neutral-900 text-neutral-0 text-sm text-center h-20 p-8`;
 
 export default function LandingPage() {
@@ -25,7 +34,7 @@ export default function LandingPage() {
     <MainContainer>
       <Header>
         <div>
-          <img src={LogoSVG} alt="Fluento logo" className="w-48 h-auto" />
+          <img src={LogoSVG} alt="Fluento logo" className="w-32 h-auto" />
         </div>
         <CallToAction>
           <Button
@@ -48,10 +57,14 @@ export default function LandingPage() {
             <span className="text-primary-500 mx-2 font-bold">context</span>
           </CatchPhrase>
           <Message>
-            Choose the vocabulary
+            Choose words that matter most to
             <span className="mx-2 font-bold italic text-primary-500">YOU</span>
-            want to learn and improve your language through our fun game
+            and improve your language with our fun game
           </Message>
+          <p className="text-sm">
+            Build your own vocabulary projects, practice with games, and track
+            your progress — tailored to your real-life contexts.
+          </p>
           <div className="flex flex-col items-center gap-8">
             <Button size="full" onClick={() => navigate("/signup")}>
               Get started
@@ -66,54 +79,88 @@ export default function LandingPage() {
           </div>
         </Hero>
       </MainContent>
+
       <Section>
         <SectionContent>
-          <p>Some gif of the Project creation...</p>
-        </SectionContent>
-        <SectionContent>
-          <SectionHeader>1 project for 1 context</SectionHeader>
-          <SectionParagraph>
-            With FluentO, teach yourself multiple foreign languages by creating
-            projects for your favourite environments (e.g. work, environment,
-            sport...).
-          </SectionParagraph>
+          <SectionMessageContainer className="sm:order-1">
+            <SectionMessageTitle>
+              Organize learning into projects
+            </SectionMessageTitle>
+            <SectionMessageText>
+              With FluentO, focus your learning by creating projects for
+              specific languages and contexts — whether it is work vocabulary,
+              family conversations, or sports practice.
+            </SectionMessageText>
+          </SectionMessageContainer>
+
+          <SectionImageContainer className="sm:order-2">
+            <SectionImage src={LogoSVG} alt="Illustration" />
+          </SectionImageContainer>
         </SectionContent>
       </Section>
 
       <Section>
         <SectionContent>
-          <SectionHeader>Choose your own vocabulary</SectionHeader>
-          <SectionParagraph>
-            Reading a newspaper, hearing a conversation. Catch the words YOU
-            decide to learn and store them in FluentO. No time to find the
-            translation? Do it later! Plus, give each word tags and you will be
-            able to filter them easily later.
-          </SectionParagraph>
-        </SectionContent>
-        <SectionContent>
-          <p>Some gif of the Vocabulary page...</p>
+          <SectionMessageContainer className="sm:order-2">
+            <SectionMessageTitle>
+              Save the words that matter to you
+            </SectionMessageTitle>
+            <SectionMessageText>
+              Reading a newspaper or hearing a conversation? Quickly add new
+              words and expressions with translations, usage context, and tags
+              so you can find and study them later.
+            </SectionMessageText>
+          </SectionMessageContainer>
+
+          <SectionImageContainer className="sm:order-1">
+            <SectionImage src={LogoSVG} alt="Illustration" />
+          </SectionImageContainer>
         </SectionContent>
       </Section>
 
       <Section>
         <SectionContent>
-          <p>Some gif of the game page...</p>
+          <SectionMessageContainer className="sm:order-1">
+            <SectionMessageTitle>
+              Practice with smart flashcards
+            </SectionMessageTitle>
+            <SectionMessageText>
+              Play a flipping card game tailored to your needs. Filter words,
+              test yourself, and track how well you know each term.
+            </SectionMessageText>
+          </SectionMessageContainer>
+
+          <SectionImageContainer className="sm:order-2">
+            <SectionImage src={LogoSVG} alt="Illustration" />
+          </SectionImageContainer>
         </SectionContent>
+      </Section>
+
+      <Section>
         <SectionContent>
-          <SectionHeader>Learn by playing</SectionHeader>
-          <SectionParagraph>Play the game...</SectionParagraph>
+          <SectionMessageContainer className="sm:order-2">
+            <SectionMessageTitle>
+              Save the words that matter to you
+            </SectionMessageTitle>
+            <SectionMessageText>
+              Browse, search, and filter all your saved words. Your own
+              vocabulary grows with you — easy to find, easy to review.
+            </SectionMessageText>
+          </SectionMessageContainer>
+
+          <SectionImageContainer className="sm:order-1">
+            <SectionImage src={LogoSVG} alt="Illustration" />
+          </SectionImageContainer>
         </SectionContent>
       </Section>
 
       <Section className="bg-primary-500">
         <SectionContent>
           <SectionHeader className="text-primary-300">
-            Monitor your progress over time
+            See by yourself!
           </SectionHeader>
           <SectionParagraph className="text-neutral-0">
-            This is some text about the homepage. It will be nicely constrained
-            on large screens, and almost full width on small devices. On laptops
-            or desktops, it won’t stretch too wide, so the text stays readable.
+            Gif of the application...
           </SectionParagraph>
         </SectionContent>
       </Section>
