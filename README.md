@@ -27,7 +27,7 @@ The website is hosted on Netlify: [Fluento](https://app.netlify.com/projects/flu
    2. $> git pull origin main
 2. Create and switch to your feature branch: $> git checkout -b feature/my-new-feature
 3. Do your work (development). When done:
-   1. Build the project: $> npm run build
+   1. Build the project: $> npm run build Note: not needed though, since Netlify will do it automatically for you whenever you merge your branch into main. You can still do it for instance before mergin to main, locally once, to make sure it builds cleanly
    2. Copy the 'netlify.toml' file into the 'dist' directory
    3. Add and commit changes via the "Source control" side tab in VScode
 4. Push your branch to github: $> git push -u origin feature/my-new-feature (or via the "Source control" side tab). The '-u' flag links your local branch to the remote one on GitHub, so next time you just need $> git push
