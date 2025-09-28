@@ -8,7 +8,7 @@ import SpinnerMini from "../../ui/SpinnerMini";
 import { useNavigate } from "react-router-dom";
 import tw from "tailwind-styled-components";
 
-const LinkSignup = tw.a`text-primary-500 text-3xl mt-6 cursor-pointer hover:text-primary-600`;
+const LinkSignup = tw.a`text-primary-500 text-2xl mt-6 cursor-pointer hover:text-primary-600`;
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -27,7 +27,7 @@ function LoginForm() {
           setEmail("");
           setPassword("");
         },
-      }
+      },
     );
   }
 
@@ -56,7 +56,7 @@ function LoginForm() {
         />
       </FormRowVertical>
 
-      <Button size="large" disabled={isPending}>
+      <Button size="full" disabled={isPending}>
         {!isPending ? "Log in" : <SpinnerMini />}
       </Button>
 
