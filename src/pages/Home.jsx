@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import { useProjectContext } from "../contexts/ProjectContext";
 import { useCategoriesPerUser } from "../features/category/useCategory";
 
-const MainContainer = tw.div`flex flex-col m-6 gap-16`;
+const MainContainer = tw.div`flex flex-col m-6 gap-8`;
 const LanguageFilterContainer = tw.div`flex items-center justify-center bg-white px-8 py-4 rounded-xl w-fit m-auto`;
 const ButtonAddProject = tw.button`block m-auto`;
 
@@ -35,7 +35,7 @@ const Home = () => {
 
   const projectsByLanguages = projects?.filter((project) => {
     return languages?.filter(
-      (obj) => obj.language === project.learningLanguage
+      (obj) => obj.language === project.learningLanguage,
     )[0]?.selected;
   });
 
@@ -66,7 +66,7 @@ const Home = () => {
 
     // If the user's action has not modified anything, don't do anything
     const nbLanguagesSelected = updatedLanguages?.filter(
-      (obj) => obj.selected
+      (obj) => obj.selected,
     ).length;
     if (nbLanguagesSelected === 0) return;
 
@@ -129,7 +129,7 @@ const Home = () => {
     .map((obj) => obj.language);
 
   const nbWordsPerLanguagesSelected = vocabulary.filter((obj) =>
-    languagesNamesSelected?.includes(obj.learningLanguage)
+    languagesNamesSelected?.includes(obj.learningLanguage),
   ).length;
 
   return (
@@ -154,9 +154,9 @@ const Home = () => {
           </ButtonAddProject>
         </div>
 
-        <div className="mx-auto text-3xl">
+        <div className="mx-auto text-lg lg:text-xl">
           Total number words:{" "}
-          <span className="text-4xl font-semibold">
+          <span className="text-xl lg:text-2xl font-semibold">
             {nbWordsPerLanguagesSelected}
           </span>
         </div>

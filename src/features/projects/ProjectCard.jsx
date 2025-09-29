@@ -23,7 +23,7 @@ import Button from "../../ui/Button";
 
 const CardContainer = tw.div`rounded-2xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100 flex flex-col items-center justify-between gap-6 p-4 shadow dark:shadow-neutral-700`;
 const Header = tw.div`flex items-center justify-start w-full`;
-const ProjectName = tw.div`text-4xl font-semibold m-auto`;
+const ProjectName = tw.div`text-xl lg:text-2xl font-semibold m-auto`;
 const Footer = tw.div`flex items-center justify-between w-full`;
 const FooterButtons = tw.div`flex items-center justify-between gap-4`;
 const FooterFilter = tw.div`flex items-center gap-4`;
@@ -51,11 +51,11 @@ export default function ProjectCard({
   if (vocaPlayed.length > 0) {
     const sumScores = vocaPlayed.reduce(
       (acc, currVoca) => acc + currVoca.score,
-      0
+      0,
     );
     const sumGamesPlayed = vocaPlayed.reduce(
       (acc, currVoca) => acc + currVoca.games_played,
-      0
+      0,
     );
     scorePercent = Math.round((sumScores / sumGamesPlayed) * 100);
   }
@@ -115,7 +115,7 @@ export default function ProjectCard({
     const uniqueCategoryIds = [...new Set(newArr)];
 
     const categoriesFilteredByIds = categories?.filter((cat) =>
-      uniqueCategoryIds.includes(cat.id)
+      uniqueCategoryIds.includes(cat.id),
     );
     categoriesFilteredByIds?.forEach((obj) => (obj.selected = true));
 
@@ -134,21 +134,21 @@ export default function ProjectCard({
         <Flag country={getLanguageCode(learningLanguage)} size={40} />
         <ProjectName>{name}</ProjectName>
         <Button variation="primaryOutlined" size="small" onClick={handlePlay}>
-          <SportsEsportsOutlinedIcon sx={{ fontSize: "2.5rem" }} />
+          <SportsEsportsOutlinedIcon sx={{ fontSize: "1.4rem" }} />
           Play
         </Button>
       </Header>
       <div className="w-full grid grid-cols-12 grid-rows-2 gap-y-12 text-neutral-900 border border-neutral-200 dark:text-neutral-0 dark:border-neutral-600 py-8 rounded-2xl">
-        <div className="col-row-1 col-start-2 col-end-6 flex items-center justify-start gap-4 text-5xl font-semibold">
+        <div className="col-row-1 col-start-2 col-end-6 flex items-center justify-start gap-4 text-3xl font-semibold">
           <FunctionsIcon
             sx={{ fontSize: 26 }}
             className="text-neutral-500 dark:text-neutral-300"
           />
           <p>
-            {voca.length} <span className="text-2xl">words</span>
+            {voca.length} <span className="text-xl">words</span>
           </p>
         </div>
-        <div className="col-row-1 col-start-6 col-end-12 flex items-center justify-end gap-4 text-5xl font-semibold">
+        <div className="col-row-1 col-start-6 col-end-12 flex items-center justify-end gap-4 text-3xl font-semibold">
           {scorePercent === null ? (
             <BlockIcon sx={{ fontSize: 26 }} />
           ) : scorePercent > 66 ? (
@@ -167,7 +167,7 @@ export default function ProjectCard({
             )}
           </p>
         </div>
-        <div className="col-row-2 col-start-2 col-end-6 flex items-center justify-start gap-4 text-5xl font-semibold">
+        <div className="col-row-2 col-start-2 col-end-6 flex items-center justify-start gap-4 text-3xl font-semibold">
           {incompleteVoca.length > 0 ? (
             <>
               <Battery3BarIcon
@@ -176,7 +176,7 @@ export default function ProjectCard({
               />
               <p>
                 {incompleteVoca.length}
-                <span className="text-2xl ml-2">words</span>
+                <span className="text-xl ml-2">words</span>
               </p>
             </>
           ) : (
@@ -191,7 +191,7 @@ export default function ProjectCard({
             </>
           )}
         </div>
-        <div className="col-row-2 col-start-6 col-end-12 flex items-center justify-end gap-4 text-5xl font-semibold">
+        <div className="col-row-2 col-start-6 col-end-12 flex items-center justify-end gap-4 text-3xl font-semibold">
           <FavoriteIcon
             sx={{ fontSize: 26 }}
             className={
