@@ -1,14 +1,13 @@
 import tw from "tailwind-styled-components";
 import { useGeneralSettingsContext } from "../../contexts/GeneralSettingsContext";
 
-const MainContainer = tw.div`flex items-center justify-around`;
+const MainContainer = tw.div`flex items-center justify-around w-full max-w-2xl mx-auto`;
 
 export default function HomeTabs() {
   const { state, dispatch } = useGeneralSettingsContext();
   const homeTab = state.homeTab;
 
-  // const Tab = tw.button`w-full py-4 border-solid border-neutral-300 dark:border-neutral-100 border-[1px] text-3xl text-center`;
-  const Tab = tw.button`w-full py-4 text-3xl text-center`;
+  const Tab = tw.button`w-full py-2 text-lg lg:text-xl lg:py-3 text-center`;
 
   const handleButtonClicked = (selection) => {
     dispatch({ type: "homeTab/selected", payload: selection });
