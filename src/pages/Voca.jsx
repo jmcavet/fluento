@@ -24,7 +24,7 @@ import { useUser } from "../features/authentification/useUser";
 import { useVocaFilterContext } from "../contexts/VocaFilterContext";
 import NoProject from "../ui/NoProject";
 
-const MainContainer = tw.div`h-full flex flex-col items-align justify-between p-6`;
+const MainContainer = tw.div`h-full flex flex-col gap-4 items-align justify-between p-6`;
 const LanguageFilterContainer = tw.div`flex items-center justify-center`;
 const Content = tw.div`flex flex-col items-align justify-between gap-6`;
 
@@ -54,12 +54,12 @@ const Voca = () => {
 
   // Define projects filtered by a specific language
   const projectsByLanguages = projects?.filter(
-    (project) => project.learningLanguage === language
+    (project) => project.learningLanguage === language,
   );
 
   // Calculate the number of words per project selected
   const nbWords = vocabulary?.filter(
-    (item) => item.project_id === projectSelected?.id
+    (item) => item.project_id === projectSelected?.id,
   ).length;
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const Voca = () => {
 
     if (projectSelected.learningLanguage !== languageClicked) {
       const projectsByLanguages = projects?.filter(
-        (project) => project.learningLanguage === languageClicked
+        (project) => project.learningLanguage === languageClicked,
       );
       dispatchProject({
         type: "project/selected",
@@ -139,7 +139,7 @@ const Voca = () => {
     noEntryProvided
       ? "bg-transparent dark:bg-transparent text-neutral-400 dark:text-neutral-600 border-[1px] border-neutral-400 dark:border-neutral-600"
       : "bg-primary-500 text-neutral-0"
-  } px-8 py-4 rounded-2xl text-3xl h-20`;
+  } px-4 py-3 rounded-2xl text-xl md:text-2xl`;
 
   // If no projects are yet defined, return a warning
   if (projects?.length === 0) return <NoProject />;

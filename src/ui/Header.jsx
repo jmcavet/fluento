@@ -7,7 +7,7 @@ import { useVocaContext } from "../contexts/VocaContext";
 import WestOutlinedIcon from "@mui/icons-material/WestOutlined";
 import tw from "tailwind-styled-components";
 
-const MainContainer = tw.div`px-4 py-4 bg-neutral-900 text-primary-500 border-b-2 dark:border-neutral-700`;
+const MainContainer = tw.div`px-2 py-2 md:py-3 bg-neutral-900 text-primary-500 border-b-2 dark:border-neutral-700`;
 
 function Header() {
   const location = useLocation();
@@ -40,7 +40,7 @@ function Header() {
     );
   } else if (pathName === "voca") {
     myChildren = (
-      <div className="text-[1.75rem] flex items-center justify-around">
+      <div className="text-sm md:text-xl flex items-center justify-around w-full mx-auto max-w-2xl">
         <button
           className={`${
             processType === "standard"
@@ -57,7 +57,7 @@ function Header() {
             processType === "quicky"
               ? "bg-primary-500 text-neutral-0"
               : "border border-neutral-0 text-neutral-0"
-          } flex items-center justify-between gap-4 px-4 py-2 rounded-3xl transition-colors duration-300`}
+          } flex items-center justify-between gap-2 px-4 py-2 rounded-3xl transition-colors duration-300`}
           onClick={selectVocaQuicky}
         >
           <ElectricBoltIcon />

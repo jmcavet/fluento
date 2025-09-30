@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 import Modal from "../../ui/Modal";
 import ModalCreateCategory from "../../features/vocabularies/ModalCreateCategory";
 
-const MainContainer = tw.div`flex flex-col justify-between gap-4 dark:text-neutral-300 bg-neutral-0 dark:bg-neutral-800 text-3xl p-4 rounded-2xl`;
-const CategoryHeader = tw.div`flex items-center justify-between`;
+const MainContainer = tw.div`flex flex-col justify-between gap-2 dark:text-neutral-300 bg-neutral-0 dark:bg-neutral-800 text-lg md:text-xl px-4 py-2 rounded-2xl`;
+const CategoryHeader = tw.div`flex items-center justify-between text-lg md:text-xl`;
 const ListCategories = tw.div`flex items-center justify-start flex-wrap gap-6 bg-white rounded-xl p-4`;
 
 export default function Categories({ children }) {

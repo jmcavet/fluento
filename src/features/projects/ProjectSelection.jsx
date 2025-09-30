@@ -1,10 +1,9 @@
-import Flag from "react-flagkit";
 import { Select } from "../../ui/Select";
 import { useProjectContext } from "../../contexts/ProjectContext";
 import { useEffect, useState } from "react";
 import tw from "tailwind-styled-components";
 
-const MainContainer = tw.div`flex items-center justify-center gap-4 w-full text-3xl dark:bg-neutral-800`;
+const MainContainer = tw.div`flex items-center justify-center gap-4 w-full text-lg md:text-xl dark:bg-neutral-800`;
 
 export default function ProjectSelection({ projects }) {
   const { state: stateProject, dispatch: dispatchProject } =
@@ -21,7 +20,7 @@ export default function ProjectSelection({ projects }) {
   useEffect(() => {
     const getOptionSelected = (projectSelected) => {
       const titi = options?.filter(
-        (option, index) => option.label === projectSelected.name
+        (option, index) => option.label === projectSelected.name,
       );
 
       return titi.length > 0 ? titi[0].value : "All";
@@ -32,11 +31,11 @@ export default function ProjectSelection({ projects }) {
 
   const handleSelectProject = (e) => {
     const optionSelected = options.filter(
-      (option) => option.value === parseInt(e.target.value)
+      (option) => option.value === parseInt(e.target.value),
     )[0];
 
     const projectSelected = projects.filter(
-      (project) => project.name === optionSelected.label
+      (project) => project.name === optionSelected.label,
     )[0];
 
     setOptionSelected(e.target.value);
