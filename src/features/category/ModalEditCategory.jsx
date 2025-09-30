@@ -5,7 +5,7 @@ import FormRow from "../../ui/FormRow";
 import { useState } from "react";
 import { useUpdateCategory } from "./useCategory";
 
-const MainContainer = tw.div`flex flex-col gap-6 w-[30rem] p-6 rounded-xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
+const MainContainer = tw.div`flex flex-col gap-6 mx-auto p-6 rounded-xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
 const InputContainer = tw.div`flex flex-col`;
 const Input = tw.input`bg-neutral-100 dark:bg-neutral-700 text-2xl text-neutral-800 dark:text-neutral-100 border-[1px] border-neutral-300 rounded-xl p-4`;
 const Label = tw.label`text-neutral-300`;
@@ -44,7 +44,7 @@ function ModalEditCategory({
     <MainContainer>
       <Heading as="h2">Update category</Heading>
       <FormRow
-        label="category"
+        label=""
         className="bg-neutral-200 p-6"
         error={errors?.name?.message}
       >

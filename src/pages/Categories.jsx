@@ -21,9 +21,9 @@ import ModalDeleteCategory from "../features/category/ModalDeleteCategory";
 import ModalEditCategory from "../features/category/ModalEditCategory";
 import { useVocaFilterContext } from "../contexts/VocaFilterContext";
 
-const MainContainer = tw.div`h-full flex flex-col items-align justify-between px-4 py-6 text-3xl`;
+const MainContainer = tw.div`h-full flex flex-col items-align justify-between px-4 py-6 text-xl md:text-2xl`;
 const Content = tw.div`flex flex-col items-align justify-between gap-6`;
-const Category = tw.li`flex items-center justify-between bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100 p-6 rounded-xl`;
+const Category = tw.li`flex items-center justify-between bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100 px-4 py-3 rounded-xl`;
 const LanguageFilterContainer = tw.div`flex items-center justify-center`;
 
 const Categories = () => {
@@ -57,7 +57,7 @@ const Categories = () => {
     }
 
     const categoriesPerProject = categories?.filter(
-      (cat) => cat.project_id === projectSelected.id
+      (cat) => cat.project_id === projectSelected.id,
     );
 
     setProjectCategories(categoriesPerProject);
@@ -65,7 +65,7 @@ const Categories = () => {
 
   // Define projects filtered by a specific language
   const projectsByLanguages = projects?.filter(
-    (project) => project.learningLanguage === language
+    (project) => project.learningLanguage === language,
   );
 
   // Handler when user clicks on a specific country flag
@@ -79,7 +79,7 @@ const Categories = () => {
 
     if (projectSelected.learningLanguage !== languageClicked) {
       const projectsByLanguages = projects?.filter(
-        (project) => project.learningLanguage === languageClicked
+        (project) => project.learningLanguage === languageClicked,
       );
       dispatchProject({
         type: "project/selected",
@@ -90,7 +90,7 @@ const Categories = () => {
 
   const getWordsToUpdate = (categoryId) => {
     const wordsToUpdate = vocabulary.filter((voca) =>
-      voca.category_ids.includes(categoryId)
+      voca.category_ids.includes(categoryId),
     );
 
     return wordsToUpdate;
@@ -139,7 +139,7 @@ const Categories = () => {
                   <Modal.Open opens="edit-category">
                     <ModeEditOutlinedIcon
                       sx={{ fontSize: 28 }}
-                      className="text-primary-500 dark:text-primary-500"
+                      className="text-primary-500 dark:text-primary-500 cursor-pointer hover:text-primary-600 dark:hover:text-primary-400"
                     />
                   </Modal.Open>
                   <Modal.Window name="edit-category">
@@ -155,7 +155,7 @@ const Categories = () => {
                   <Modal.Open opens="delete-category">
                     <DeleteOutlineOutlinedIcon
                       sx={{ fontSize: 28 }}
-                      className="text-error-500 dark:text-error-500"
+                      className="text-error-500 dark:text-error-500 cursor-pointer hover:text-error-600 dark:hover:text-error-400"
                     />
                   </Modal.Open>
                   <Modal.Window name="delete-category">

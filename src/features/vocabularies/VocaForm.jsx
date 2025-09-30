@@ -18,9 +18,9 @@ import { useEffect } from "react";
 import tw from "tailwind-styled-components";
 import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 
-const MainContainer = tw.div`bg-neutral-0 dark:bg-neutral-800 p-4 rounded-2xl text-3xl shadow dark:shadow-neutral-700`;
-const Input = tw.input`text-4xl p-6 bg-neutral-100 placeholder-neutral-300 dark:bg-neutral-700 dark:text-neutral-0 dark:placeholder-neutral-400 rounded-xl`;
-const Textarea = tw.textarea`text-4xl p-6 bg-neutral-100 placeholder-neutral-300 dark:bg-neutral-700 dark:text-neutral-0 dark:placeholder-neutral-400 rounded-xl`;
+const MainContainer = tw.div`bg-neutral-0 dark:bg-neutral-800 p-4 rounded-2xl text-lg md:text-xl shadow dark:shadow-neutral-700`;
+const Input = tw.input`text-xl md:text-2xl p-4 bg-neutral-100 placeholder-neutral-300 dark:bg-neutral-700 dark:text-neutral-0 dark:placeholder-neutral-400 rounded-xl`;
+const Textarea = tw.textarea`text-xl md:text-2xl p-4 bg-neutral-100 placeholder-neutral-300 dark:bg-neutral-700 dark:text-neutral-0 dark:placeholder-neutral-400 rounded-xl`;
 
 export default function VocaForm() {
   const { state, dispatch } = useProjectContext();
