@@ -5,7 +5,7 @@ import tw from "tailwind-styled-components";
 import { useVocabularyPerUser } from "../vocabularies/useVocabulary";
 import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 
-const MainContainer = tw.div`overflow-scroll flex flex-col gap-12 mt-8 px-4 text-neutral-800 dark:text-neutral-100`;
+const MainContainer = tw.div`overflow-scroll flex flex-col gap-8 mt-4 px-4 text-neutral-800 dark:text-neutral-100`;
 
 export default function DictionaryItems() {
   const { vocabulary } = useVocabularyPerUser();
@@ -26,25 +26,25 @@ export default function DictionaryItems() {
 
   // Define the list of words (project assigned or not (quickies)) for the language selected
   const wordsPerLanguage = vocabulary?.filter(
-    (obj) => obj.learningLanguage === language
+    (obj) => obj.learningLanguage === language,
   );
 
   let myVocaFiltered;
   if (projectType === "allProjects") {
     myVocaFiltered = wordsPerLanguage?.filter(
-      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   } else if (projectType === "singleProject") {
     myVocaFiltered = wordsPerLanguage?.filter(
       (obj) =>
         obj.project_id &&
         obj.project_id === singleProjectId &&
-        !wordsIdsFilteredOut.includes(obj.id)
+        !wordsIdsFilteredOut.includes(obj.id),
     );
   } else {
     // Quickies
     myVocaFiltered = wordsPerLanguage?.filter(
-      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   }
 
@@ -62,7 +62,7 @@ export default function DictionaryItems() {
       // Get ids of all types filtered by user in Filter modal window
       const typesFiltered = wordTypes?.filter((obj) => obj.selected);
       const typesNameFiltered = typesFiltered?.map((obj) =>
-        obj.label.toLowerCase()
+        obj.label.toLowerCase(),
       );
 
       // If quickies, we cannot evaluate the word type since there are no assigned, because it is a quicky per nature

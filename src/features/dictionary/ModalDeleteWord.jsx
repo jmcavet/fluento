@@ -3,8 +3,8 @@ import ButtonsCancelConfirm from "../../ui/ButtonsCancelConfirm";
 import Heading from "../../ui/Heading";
 import { useDeleteVocabulary } from "../vocabularies/useVocabulary";
 
-const MainContainer = tw.div`flex flex-col gap-6 w-[30rem] p-6 rounded-xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
-const Title = tw.div`text-neutral-800 dark:text-neutral-200 mb-8`;
+const MainContainer = tw.div`flex flex-col gap-6 mx-auto p-6 rounded-xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
+const Title = tw.div`text-xl md:text-2xl text-neutral-800 dark:text-neutral-200 mb-8`;
 
 function ModalDeleteWord({ resourceName, wordsToDelete, onCloseModal }) {
   const { isDeleting, deleteVocabulary } = useDeleteVocabulary();

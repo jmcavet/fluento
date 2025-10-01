@@ -8,12 +8,12 @@ function Checkbox({
   id,
   children,
 }) {
-  const MainContainer = tw.div`flex items-center gap-4 ${(p) =>
+  const MainContainer = tw.div`flex items-center gap-2 ${(p) =>
     checked
       ? "text-neutral-700 dark:text-neutral-200"
       : "text-neutral-300 dark:text-neutral-500"}`;
-  const InputContainer = tw.input`h-6 w-6 outline-offset-2`;
-  const LabelContainer = tw.label`flex items-center gap-4`;
+  const InputContainer = tw.input`h-4 w-4 outline-offset-2`;
+  const LabelContainer = tw.label`flex items-center gap-3 text-base md:text-lg`;
 
   return (
     <MainContainer>

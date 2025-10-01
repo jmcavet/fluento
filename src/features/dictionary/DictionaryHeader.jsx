@@ -19,18 +19,18 @@ import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 import { useVocabularyPerUser } from "../vocabularies/useVocabulary";
 import WordsFilter from "../../ui/WordsFilter";
 
-const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 py-6 flex flex-col gap-6 rounded-b-[2rem] dark:rounded-none`;
+const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 flex flex-col gap-3 rounded-b-[2rem] dark:rounded-none`;
 const LanguageAndFilterContainer = tw.div`flex items-center justify-between`;
-const LanguageSelectionContainer = tw.div`flex items-center justify-center p-4 mx-auto mt-4 rounded-xl w-fit`;
-const ProjectSelectionContainer = tw.div`flex items-center justify-between rounded-xl p-4`;
-const SearchFilterContainer = tw.div`flex items-center justify-between gap-8 mb-2`;
-const ButtonFilter = tw.button`p-4 rounded-2xl border-solid border-text-neutral-0 border-[1px]`;
+const LanguageSelectionContainer = tw.div`flex items-center justify-center px-4 mx-auto mt-2 mb-3 rounded-xl w-fit`;
+const ProjectSelectionContainer = tw.div`flex items-center justify-between rounded-xl px-4 py-2`;
+const SearchFilterContainer = tw.div`flex items-center justify-between gap-4 mb-2`;
+const ButtonFilter = tw.button`px-4 py-2 rounded-2xl border-solid border-text-neutral-0 border-[1px]`;
 const Row = tw.div`flex items-center justify-between text-neutral-0 mb-4`;
 const ListSingleProjects = tw.div`absolute bg-neutral-100 text-neutral-800 border border-neutral-200 dark:bg-neutral-900 dark:text-neutral-0 dark:border-neutral-500 rounded-xl overflow-auto shadow z-10 min-w-[10rem]`;
 const FlagButton = tw.button`flex items-center gap-4 border-solid p-[1px] border-white border-[1px]`;
 const SettingsButton = tw.button`text-neutral-0 dark:text-primary-500`;
 const WordEditContainer = tw.div`flex items-center justify-between gap-4`;
-const NbWordsFiltered = tw.div`text-3xl text-neutral-0`;
+const NbWordsFiltered = tw.div`text-lg md:text-xl text-neutral-0`;
 const AnyProjectContainer = tw.a`relative inline-block mr-4`;
 
 export default function DictionaryHeader({ languageNames }) {
@@ -62,73 +62,73 @@ export default function DictionaryHeader({ languageNames }) {
     projectType === "allProjects"
       ? styleProjectSelected
       : styleProjectNotSelected}
-      cursor-pointer p-4 rounded-3xl`;
+      cursor-pointer px-4 py-2 rounded-3xl`;
 
   const AllProjectsCountContainer = tw.span`${(props) =>
     projectType === "allProjects"
       ? styleProjectSelected
       : styleProjectContainer}
-      absolute -top-5 -right-9 rounded-full border border-[1px] text-xl p-2 flex items-center justify-center`;
+      absolute -top-5 -right-9 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
 
   const SingleProjectButton = tw.button`${(props) =>
     projectType === "singleProject"
       ? styleProjectSelected
       : styleProjectNotSelected}
-      cursor-pointer p-4 rounded-3xl`;
+      cursor-pointer px-4 py-2 rounded-3xl`;
 
   const SingleProjectCountContainer = tw.span`${(props) =>
     projectType === "singleProject"
       ? styleProjectSelected
       : styleProjectContainer}
-      absolute -top-5 -right-9 rounded-full border border-[1px] text-xl p-2 flex items-center justify-center`;
+      absolute -top-5 -right-9 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
 
   const QuickiesButton = tw.button`${(props) =>
     projectType === "quickies" ? styleProjectSelected : styleProjectNotSelected}
-    flex items-center justify-between gap-4 p-4 rounded-3xl cursor-pointer`;
+    flex items-center justify-between gap-4 px-4 py-2 rounded-3xl cursor-pointer`;
 
   const QuickiesCountContainer = tw.span`${(props) =>
     projectType === "quickies" ? styleProjectSelected : styleProjectContainer}
-    absolute -top-5 -right-6 rounded-full border border-[1px] text-xl w-10 h-10 p-2 flex items-center justify-center`;
+    absolute -top-5 -right-6 rounded-full border border-[1px] text-sm md:text-base w-10 h-10 p-2 flex items-center justify-center`;
 
   const { projects } = useProject();
   const { vocabulary } = useVocabularyPerUser();
 
   // Define all projects belonging to the language selected
   const projectsPerLanguage = projects?.filter(
-    (project) => project.learningLanguage === language
+    (project) => project.learningLanguage === language,
   );
 
   // Define the list of words (project assigned or not (quickies)) for the language selected
   const wordsPerLanguage = vocabulary?.filter(
-    (obj) => obj.learningLanguage === language
+    (obj) => obj.learningLanguage === language,
   );
 
   // Get the number of words for all Projects, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsAllProjects = wordsPerLanguage?.filter(
-    (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+    (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
   ).length;
 
   // Get the number of words for Quickies, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsQuickies = wordsPerLanguage?.filter(
-    (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+    (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
   ).length;
 
   let myVocaFiltered;
   if (projectType === "allProjects") {
     myVocaFiltered = wordsPerLanguage?.filter(
-      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   } else if (projectType === "singleProject") {
     myVocaFiltered = wordsPerLanguage?.filter(
       (obj) =>
         obj.project_id &&
         obj.project_id === singleProjectId &&
-        !wordsIdsFilteredOut.includes(obj.id)
+        !wordsIdsFilteredOut.includes(obj.id),
     );
   } else {
     // Quickies
     myVocaFiltered = wordsPerLanguage?.filter(
-      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   }
 
@@ -142,12 +142,12 @@ export default function DictionaryHeader({ languageNames }) {
   const wordsSingleProject =
     singleProjectSelected &&
     wordsPerLanguage?.filter(
-      (obj) => obj.project_id === singleProjectSelected.id
+      (obj) => obj.project_id === singleProjectSelected.id,
     );
 
   // Get the number of those words, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsSingleProjectFiltered = wordsSingleProject?.filter(
-    (word) => !wordsIdsFilteredOut.includes(word.id)
+    (word) => !wordsIdsFilteredOut.includes(word.id),
   ).length;
 
   // Define the html elements corresponding to each single project
@@ -185,7 +185,7 @@ export default function DictionaryHeader({ languageNames }) {
   const uniqueCategoryIds = [...new Set(newArr)];
 
   const categoriesFilteredByIds = categories?.filter((cat) =>
-    uniqueCategoryIds.includes(cat.id)
+    uniqueCategoryIds.includes(cat.id),
   );
   categoriesFilteredByIds?.forEach((obj) => (obj.selected = true));
 
@@ -198,7 +198,7 @@ export default function DictionaryHeader({ languageNames }) {
     const uniqueCategoryIds = [...new Set(newArr)];
 
     const categoriesFilteredByIds = categories?.filter((cat) =>
-      uniqueCategoryIds.includes(cat.id)
+      uniqueCategoryIds.includes(cat.id),
     );
     categoriesFilteredByIds?.forEach((obj) => (obj.selected = true));
 
@@ -221,7 +221,7 @@ export default function DictionaryHeader({ languageNames }) {
   // Option 1: user clicks on the "All projects" button
   const handleSelectAllProjects = () => {
     const categoriesFilteredByIds = getCategoriesFileredByIds(
-      wordsPerLanguage?.filter((obj) => obj.project_id)
+      wordsPerLanguage?.filter((obj) => obj.project_id),
     );
 
     dispatchVocaFilter({
@@ -240,7 +240,7 @@ export default function DictionaryHeader({ languageNames }) {
   // Option 2b: user clicks on a single project from the dropdown list
   const handleSelectSingleProject = (projectId) => {
     const myWordsUpdated = vocabulary?.filter(
-      (voca) => voca.project_id === projectId
+      (voca) => voca.project_id === projectId,
     );
     const categoriesFilteredByIds = getCategoriesFileredByIds(myWordsUpdated);
 
@@ -366,7 +366,7 @@ export default function DictionaryHeader({ languageNames }) {
           <FlagButton onClick={handleSwitchLanguage}>
             <Flag
               country={getLanguageCode(
-                isLearningLanguage ? language : projects[0]["motherLanguage"]
+                isLearningLanguage ? language : projects[0]["motherLanguage"],
               )}
               size={48}
             />
@@ -414,7 +414,7 @@ export default function DictionaryHeader({ languageNames }) {
               <ButtonFilter onClick={handleToggleSelectDeselectAll}>
                 {selectAll ? "Select All" : "Deselect All"}
               </ButtonFilter>
-              <span className="text-3xl">{nbItemsChecked}</span>
+              <span className="md:text-xl">{nbItemsChecked}</span>
             </WordEditContainer>
             <WordEditContainer>
               <ButtonFilter onClick={handleToggleWordContext}>

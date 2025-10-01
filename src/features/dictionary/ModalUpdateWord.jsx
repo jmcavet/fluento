@@ -6,9 +6,6 @@ import { useUpdateVocabulary } from "../vocabularies/useVocabulary";
 import { useProject } from "../projects/useProject";
 import { MySelect, Select } from "../../ui/Select";
 
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -17,14 +14,14 @@ import CategoryTagsTest from "../category/CategoryTagsTest";
 import { useDictionaryContext } from "../../contexts/DictionaryContext";
 import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 
-const MainContainer = tw.div`flex flex-col grow gap-8 min-w-[80vw] max-h-[90vh] dark:bg-neutral-900 dark:text-neutral-0`;
-const Header = tw.div`grow-0 text-4xl`;
+const MainContainer = tw.div`flex flex-col grow gap-8 max-h-[90vh] dark:bg-neutral-900 dark:text-neutral-0`;
+const Header = tw.div`grow-0 md:text-2xl`;
 const MainContent = tw.div`overflow-scroll flex flex-col gap-4`;
-const InputContainer = tw.div`flex flex-col`;
-const SubContainer = tw.div`flex flex-col gap-6 bg-neutral-0 dark:bg-neutral-800 p-4 rounded-xl`;
+const SubContainer = tw.div`flex flex-col gap-4 bg-neutral-0 dark:bg-neutral-800 p-4 rounded-xl`;
 const ContainerHeader = tw.div`flex items-center justify-between`;
-const Label = tw.label`text-neutral-300 dark:text-neutral-500`;
-const CategoriesContainer = tw.div`flex items-center justify-start flex-wrap gap-6 bg-transparent rounded-xl p-4`;
+const Label = tw.label`text-xl md:text-2xl text-neutral-300 dark:text-neutral-500`;
+const TextArea = tw.textarea`text-base md:text-lg border-[1px] border-neutral-200 rounded-lg px-4 py-2 bg-transparent text-neutral-700 dark:text-neutral-200`;
+const CategoriesContainer = tw.div`flex items-center justify-start flex-wrap gap-3 md:gap-6 bg-transparent rounded-xl`;
 const Footer = tw.div`grow-0`;
 
 function ModalUpdateWord({ language, objWord, onCloseModal }) {
@@ -36,10 +33,10 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
   const [context, setContext] = useState(objWord.context);
   const [wordType, setWordType] = useState(objWord.type);
   const [wordTranslation, setWordTranslation] = useState(
-    objWord.word_translation
+    objWord.word_translation,
   );
   const [contextTranslation, setContextTranslation] = useState(
-    objWord.context_translation
+    objWord.context_translation,
   );
   const [favorite, setFavorite] = useState(objWord.favorite);
 
@@ -56,7 +53,7 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
 
   const { projects } = useProject();
   const projectsByLanguage = projects?.filter(
-    (project) => project.learningLanguage === language
+    (project) => project.learningLanguage === language,
   );
 
   // Define the list of options for the <select> html tag
@@ -66,16 +63,16 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
   // Else: retrieve the project object (using 'project_id') from the word to be updated
   const initialProjectSelected = objWord.project_id
     ? projectsByLanguage?.filter(
-        (project) => project.id === objWord.project_id
+        (project) => project.id === objWord.project_id,
       )[0].name
     : projectsOptions[0];
 
   const [myProjectSelected, setMyProjectSelected] = useState(
-    initialProjectSelected
+    initialProjectSelected,
   );
 
   const projectSelectedTest = projectsByLanguage?.filter(
-    (project) => project.name === myProjectSelected
+    (project) => project.name === myProjectSelected,
   )[0];
   const projectId = projectSelectedTest.id;
 
@@ -84,7 +81,7 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
 
   useEffect(() => {
     const tagsSelected = categoriesByProject?.map((cat) =>
-      objWord.category_ids.includes(cat.id)
+      objWord.category_ids.includes(cat.id),
     );
 
     if (tagsSelected) setTags(tagsSelected);
@@ -136,13 +133,12 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
             <ContainerHeader>
               <Label>Context</Label>
             </ContainerHeader>
-            <textarea
-              rows="4"
+            <TextArea
+              rows="3"
               id="context"
-              className="text-3xl border-[1px] border-neutral-200 rounded-lg px-6 py-4 bg-transparent text-neutral-700 dark:text-neutral-200"
               value={context}
               onChange={(e) => setContext(e.target.value)}
-            ></textarea>
+            ></TextArea>
             <ContainerHeader>
               <Label>Word translation</Label>
             </ContainerHeader>
@@ -156,13 +152,12 @@ function ModalUpdateWord({ language, objWord, onCloseModal }) {
             <ContainerHeader>
               <Label>Context translation</Label>
             </ContainerHeader>
-            <textarea
-              rows="4"
+            <TextArea
+              rows="3"
               id="contextTranslation"
-              className="text-3xl border-[1px] border-neutral-200 rounded-lg px-6 py-4 bg-transparent text-neutral-700 dark:text-neutral-200"
               value={contextTranslation}
               onChange={(e) => setContextTranslation(e.target.value)}
-            ></textarea>
+            ></TextArea>
           </SubContainer>
 
           <SubContainer>
