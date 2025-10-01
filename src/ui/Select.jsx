@@ -1,6 +1,6 @@
 import tw from "tailwind-styled-components";
 
-const MainContainer = tw.select`w-full px-4 py-2 bg-neutral-0 dark:bg-neutral-800 dark:text-neutral-0 border border-neutral-700 dark:border-neutral-0 rounded-xl`;
+const MainContainer = tw.select`w-full text-base md:text-lg px-4 py-2 bg-neutral-0 dark:bg-neutral-800 dark:text-neutral-0 border border-neutral-700 dark:border-neutral-0 rounded-xl`;
 
 export function Select({ options, value, onChange }) {
   return (

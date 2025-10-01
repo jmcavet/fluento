@@ -2,7 +2,7 @@ import tw from "tailwind-styled-components";
 import CloseIcon from "@mui/icons-material/Close";
 import { useDictionaryContext } from "../../contexts/DictionaryContext";
 
-const InputContainer = tw.input`px-4 py-4 text-2xl w-full text-neutral-0 bg-transparent dark:bg-transparent rounded-[1rem] border border-neutral-0 focus:ring-primary-700 focus:border-neutral-0 placeholder-neutral-200 dark:placeholder-neutral-400`;
+const InputContainer = tw.input`px-2 py-3 text-base md:text-lg w-full text-neutral-0 bg-transparent dark:bg-transparent rounded-[1rem] border border-neutral-0 focus:ring-primary-700 focus:border-neutral-0 placeholder-neutral-200 dark:placeholder-neutral-400`;
 
 export default function SearchBar({
   isFocused,

@@ -9,7 +9,7 @@ function AppLayout() {
   return (
     <div className="bg-neutral-100 dark:bg-neutral-900 h-screen grid grid-rows-[auto_1fr_auto] font-poppins font-regular">
       {navRequired && <Header />}
-      <main className="text-2xl overflow-scroll h-full">
+      <main className="text-base md:text-xl overflow-scroll h-full">
         {/* <Container> */}
         <Outlet />
         {/* </Container> */}

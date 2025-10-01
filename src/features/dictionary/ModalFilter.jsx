@@ -13,12 +13,12 @@ import { Favorite } from "../../ui/FavoriteIcons";
 import { useGameContext } from "../../contexts/GameContext";
 import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 
-const MainContainer = tw.div`flex flex-col gap-6 min-w-[85vw] max-h-[95vh] overflow-scroll`;
-const LinkReset = tw.div`flex items-center justify-between gap-4 w-fit text-primary-500 dark:text-primary-500 text-4xl`;
-const SubContainer = tw.div`flex flex-col gap-6 bg-neutral-0 dark:bg-neutral-800 p-4 rounded-xl`;
-const Header = tw.div`flex items-center justify-between`;
+const MainContainer = tw.div`flex flex-col text-base md:text-lg gap-2 md:gap-4 max-h-[95vh] overflow-scroll`;
+const LinkReset = tw.div`flex items-center justify-between gap-4 w-fit text-primary-500 dark:text-primary-500 text-lg md:text-xl`;
+const SubContainer = tw.div`flex flex-col gap-4 bg-neutral-0 dark:bg-neutral-800 p-4 rounded-xl`;
+const Header = tw.div`flex items-center justify-between pr-6`;
 const Label = tw.label`text-neutral-400 dark:text-neutral-300`;
-const TagsContainer = tw.div`flex items-center flex-wrap gap-4`;
+const TagsContainer = tw.div`flex items-center flex-wrap gap-2 md:gap-4`;
 const Container = tw.div`flex items-center gap-6`;
 const IncompletesContainer = tw.div`flex items-center gap-6`;
 const TwoItemsContainer = tw.div`flex items-center justify-between gap-10`;
@@ -48,15 +48,15 @@ function ModalFilter({ myVoca, onCloseModal }) {
   const [myTypes, setMyTypes] = useState(stateVocaFilter.wordTypes);
 
   const [myCategories, setMyCategories] = useState(
-    stateVocaFilter.categoriesFiltered
+    stateVocaFilter.categoriesFiltered,
   );
 
   const [scoreIcon, setScoreIcon] = useState(stateVocaFilter.scoresFiltered);
   const [favoriteIcon, setFavoriteIcon] = useState(
-    stateVocaFilter.favoriteFiltered
+    stateVocaFilter.favoriteFiltered,
   );
   const [progressIcon, setProgressIcon] = useState(
-    stateVocaFilter.progressFiltered
+    stateVocaFilter.progressFiltered,
   );
 
   const [allTypesIsChecked, setAllTypesIsChecked] = useState(true);
@@ -91,10 +91,10 @@ function ModalFilter({ myVoca, onCloseModal }) {
     setMyCategories(categoriesFiltered);
 
     const nbTagsChecked = categoriesFiltered.filter(
-      (obj) => obj.selected
+      (obj) => obj.selected,
     ).length;
     const nbTagsNotChecked = categoriesFiltered.filter(
-      (obj) => !obj.selected
+      (obj) => !obj.selected,
     ).length;
     if (nbTagsChecked === 0) setAllCategoriesIsChecked(false);
     if (nbTagsNotChecked === 0) setAllCategoriesIsChecked(true);
@@ -196,7 +196,7 @@ function ModalFilter({ myVoca, onCloseModal }) {
   });
 
   const progressPercent = Math.round(
-    (wordsFiltered.length / vocaByProjectType.length) * 100
+    (wordsFiltered.length / vocaByProjectType.length) * 100,
   ).toFixed(0);
 
   const handleApplyFilter = () => {
@@ -449,12 +449,12 @@ function ModalFilter({ myVoca, onCloseModal }) {
         </>
       )}
 
-      <div className="flex items-center justify-center mb-2 text-neutral-600 dark:text-neutral-200 text-4xl">
+      <div className="flex items-center justify-center mb-2 text-neutral-600 dark:text-neutral-200 text-lg md:text-xl">
         <span className="font-bold text-primary-500 dark:text-primary-500 mr-2">
           {wordsFiltered.length}
         </span>
         <span className="ml-2">/ {vocaByProjectType.length}</span>
-        <span className="text-2xl ml-2">
+        <span className="text-xl md:text-2xl ml-2">
           {wordsFiltered.length === 1 ? " word" : " words"}
         </span>
       </div>
