@@ -3,7 +3,7 @@ import GameWordContext from "./GameWordContext";
 import { useState } from "react";
 import { useGameContext } from "../../contexts/GameContext";
 
-const MainContainer = tw.div`grow flex flex-col m-4 bg-neutral-0 dark:bg-neutral-700 rounded-2xl shadow dark:shadow-neutral-600`;
+const MainContainer = tw.div`grow flex flex-col mx-4 my-2 bg-neutral-0 dark:bg-neutral-700 rounded-2xl shadow dark:shadow-neutral-600`;
 
 export default function GameTranslationCard({ word, isLearningLanguage }) {
   const { state: stateGame, dispatch: dispatchGame } = useGameContext();
