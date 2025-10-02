@@ -17,7 +17,7 @@ import ModalDeleteWord from "../dictionary/ModalDeleteWord";
 import { useDeleteVocabulary } from "../vocabularies/useVocabulary";
 import { useGameContext } from "../../contexts/GameContext";
 
-const MainContainer = tw.div`grow flex flex-col m-4 bg-neutral-0 dark:bg-neutral-700 rounded-2xl shadow dark:shadow-neutral-600`;
+const MainContainer = tw.div`grow flex flex-col mx-4 my-2 bg-neutral-0 dark:bg-neutral-700 rounded-2xl shadow dark:shadow-neutral-600`;
 
 const Header = tw.div`grow-0 grid grid-cols-12 grid-rows-1 p-2 text-neutral-600 dark:text-neutral-300 border-b border-b-neutral-100 dark:border-b-neutral-500 rounded-t-xl`;
 const Favorite = tw.div`col-start-1 col-end-5`;
@@ -56,7 +56,7 @@ export default function GameWordCard({ word, isLearningLanguage }) {
     (!word.context.length > 0 && word.context_translation.length > 0);
 
   const wordCategories = categories?.filter((category) =>
-    word.category_ids.includes(category.id)
+    word.category_ids.includes(category.id),
   );
 
   const handleDeleteWord = () => {

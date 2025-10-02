@@ -12,7 +12,7 @@ import GamePlay from "../features/game/GamePlay";
 import { useEffect } from "react";
 import NoProject from "../ui/NoProject";
 
-const MainContainer = tw.div`h-full flex flex-col items-align justify-between text-neutral-900 dark:text-neutral-0`;
+const MainContainer = tw.div`h-full flex flex-col items-align justify-between bg-neutral-0 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-0`;
 
 const Game = () => {
   // Get all projects per user and define project as the first one from the list
@@ -45,7 +45,9 @@ const Game = () => {
       {!gameStarted ? (
         <>
           <GameHeader languageNames={languageNames} />
-          <StartPage />
+          <div className="mx-auto w-full h-full max-w-4xl">
+            <StartPage />
+          </div>
         </>
       ) : (
         <GamePlay />

@@ -14,10 +14,11 @@ import { useCategoriesPerUser } from "../category/useCategory";
 import WordsFilter from "../../ui/WordsFilter";
 import { useLanguage } from "../languageSelection/useLanguages";
 
-const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 py-6 flex flex-col gap-6 rounded-b-[2rem] dark:rounded-none`;
+const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 flex flex-col gap-4 rounded-b-[2rem] dark:rounded-none`;
 const LanguageAndFilterContainer = tw.div`flex items-center justify-between`;
-const LanguageSelectionContainer = tw.div`flex items-center justify-center p-4 mx-auto mt-4 rounded-xl w-fit`;
-const ProjectSelectionContainer = tw.div`flex items-center justify-between rounded-xl p-4`;
+const LanguageSelectionContainer = tw.div`flex items-center justify-center px-4 mx-auto mt-2 mb-3 rounded-xl w-fit`;
+
+const ProjectSelectionContainer = tw.div`flex items-center justify-center gap-8 md:gap-12 rounded-xl px-4 py-2`;
 const ListSingleProjects = tw.div`absolute bg-neutral-100 text-neutral-800 border border-neutral-200 dark:bg-neutral-900 dark:text-neutral-0 dark:border-neutral-500 rounded-xl overflow-auto shadow z-10 min-w-[10rem]`;
 const LinkReset = tw.div`flex items-center justify-between gap-4 w-fit text-neutral-0 dark:text-primary-500 text-4xl`;
 const AnyProjectContainer = tw.a`relative inline-block mr-4`;
@@ -47,33 +48,33 @@ export default function GameHeader({ languageNames }) {
     projectType === "allProjects"
       ? styleProjectSelected
       : styleProjectNotSelected}
-      cursor-pointer p-4 rounded-3xl`;
+      cursor-pointer px-4 py-2 rounded-3xl`;
 
   const AllProjectsCountContainer = tw.span`${(props) =>
     projectType === "allProjects"
       ? styleProjectSelected
       : styleProjectContainer}
-      absolute -top-5 -right-9 rounded-full border border-[1px] text-xl p-2 flex items-center justify-center`;
+      absolute -top-5 -right-9 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
 
   const SingleProjectButton = tw.button`${(props) =>
     projectType === "singleProject"
       ? styleProjectSelected
       : styleProjectNotSelected}
-      cursor-pointer p-4 rounded-3xl`;
+      cursor-pointer px-4 py-2 rounded-3xl`;
 
   const SingleProjectCountContainer = tw.span`${(props) =>
     projectType === "singleProject"
       ? styleProjectSelected
       : styleProjectContainer}
-      absolute -top-5 -right-9 rounded-full border border-[1px] text-xl p-2 flex items-center justify-center`;
+      absolute -top-5 -right-9 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
 
   const QuickiesButton = tw.button`${(props) =>
     projectType === "quickies" ? styleProjectSelected : styleProjectNotSelected}
-    flex items-center justify-between gap-4 p-4 rounded-3xl cursor-pointer`;
+    flex items-center justify-between gap-4 px-4 py-2 rounded-3xl cursor-pointer`;
 
   const QuickiesCountContainer = tw.span`${(props) =>
     projectType === "quickies" ? styleProjectSelected : styleProjectContainer}
-    absolute -top-5 -right-6 rounded-full border border-[1px] text-xl w-10 h-10 p-2 flex items-center justify-center`;
+    absolute -top-5 -right-6 rounded-full border border-[1px] text-sm md:text-base w-10 h-10 p-2 flex items-center justify-center`;
 
   const { projects } = useProject();
   const { vocabulary } = useVocabularyPerUser();
@@ -83,22 +84,22 @@ export default function GameHeader({ languageNames }) {
 
   // Define all projects belonging to the language selected
   const projectsPerLanguage = projects?.filter(
-    (project) => project.learningLanguage === language
+    (project) => project.learningLanguage === language,
   );
 
   // Define the list of words (project assigned or not (quickies)) for the language selected
   const wordsPerLanguage = vocabulary?.filter(
-    (obj) => obj.learningLanguage === language
+    (obj) => obj.learningLanguage === language,
   );
 
   // Get the number of words for all Projects, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsAllProjects = wordsPerLanguage?.filter(
-    (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+    (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
   ).length;
 
   // Get the number of words for Quickies, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsQuickies = wordsPerLanguage?.filter(
-    (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+    (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
   ).length;
 
   // At first page render, no project is defined ('singleProjectId = null'). Select the first one from the 'projectsPerLanguage' array
@@ -111,12 +112,12 @@ export default function GameHeader({ languageNames }) {
   const wordsSingleProject =
     singleProjectSelected &&
     wordsPerLanguage?.filter(
-      (obj) => obj.project_id === singleProjectSelected.id
+      (obj) => obj.project_id === singleProjectSelected.id,
     );
 
   // Get the number of those words, depending on the options filtered (word types, categories, favorites, etc.)
   const nbWordsSingleProjectFiltered = wordsSingleProject?.filter(
-    (word) => !wordsIdsFilteredOut.includes(word.id)
+    (word) => !wordsIdsFilteredOut.includes(word.id),
   ).length;
 
   // Define the html elements corresponding to each single project
@@ -154,7 +155,7 @@ export default function GameHeader({ languageNames }) {
   const uniqueCategoryIds = [...new Set(newArr)];
 
   const categoriesFilteredByIds = categories?.filter((cat) =>
-    uniqueCategoryIds.includes(cat.id)
+    uniqueCategoryIds.includes(cat.id),
   );
   categoriesFilteredByIds?.forEach((obj) => (obj.selected = true));
 
@@ -167,7 +168,7 @@ export default function GameHeader({ languageNames }) {
     const uniqueCategoryIds = [...new Set(newArr)];
 
     const categoriesFilteredByIds = categories?.filter((cat) =>
-      uniqueCategoryIds.includes(cat.id)
+      uniqueCategoryIds.includes(cat.id),
     );
     categoriesFilteredByIds?.forEach((obj) => (obj.selected = true));
 
@@ -190,7 +191,7 @@ export default function GameHeader({ languageNames }) {
   // Option 1: user clicks on the "All projects" button
   const handleSelectAllProjects = () => {
     const categoriesFilteredByIds = getCategoriesFileredByIds(
-      wordsPerLanguage?.filter((obj) => obj.project_id)
+      wordsPerLanguage?.filter((obj) => obj.project_id),
     );
 
     dispatchVocaFilter({
@@ -209,7 +210,7 @@ export default function GameHeader({ languageNames }) {
   // Option 2b: user clicks on a single project from the dropdown list
   const handleSelectSingleProject = (projectId) => {
     const myWordsUpdated = vocabulary?.filter(
-      (voca) => voca.project_id === projectId
+      (voca) => voca.project_id === projectId,
     );
     const categoriesFilteredByIds = getCategoriesFileredByIds(myWordsUpdated);
 

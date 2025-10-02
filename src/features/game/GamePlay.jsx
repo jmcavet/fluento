@@ -20,12 +20,12 @@ import { useLanguage } from "../languageSelection/useLanguages";
 import { orderMyArray } from "../../utils/dataManipulation";
 
 const MainContainer = tw.div`h-full flex flex-col dark:bg-neutral-800`;
-const Header = tw.div`grow-0 text-3xl flex items-center justify-between py-4 bg-primary-500 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-0 px-4`;
-const LinkReset = tw.div`flex items-center justify-between gap-4 w-fit text-neutral-0 dark:text-primary-500 text-4xl`;
-const Target = tw.div`flex items-center justify-between gap-2 text-neutral-0 text-3xl`;
+const Header = tw.div`grow-0 text-xl md:text-2xl flex items-center justify-between py-4 bg-primary-500 text-neutral-900 dark:bg-neutral-900 dark:text-neutral-0 px-4`;
+const LinkReset = tw.div`flex items-center justify-between gap-4 w-fit text-neutral-0 dark:text-primary-500 text-xl md:text-2xl`;
+const Target = tw.div`flex items-center justify-between gap-2 text-neutral-0 text-xl md:text-2xl`;
 
-const ProgressContainer = tw.div`my-6`;
-const ScoreBarContainer = tw.div`h-12 m-4 flex items-center justify-start bg-neutral-200 text-neutral-900 dark:bg-neutral-600 dark:text-neutral-900 rounded-xl`;
+const ProgressContainer = tw.div`my-2`;
+const ScoreBarContainer = tw.div`h-8 md:h-12 m-4 flex items-center justify-start bg-neutral-200 text-neutral-900 dark:bg-neutral-600 dark:text-neutral-900 rounded-xl`;
 
 export default function GamePlay() {
   const [wordsScored, setWordsScored] = useState([]);
@@ -59,8 +59,8 @@ export default function GamePlay() {
     progressPercent === 0
       ? "display-none text-transparent"
       : progressPercent === 100
-      ? "flex items-center justify-center bg-primary-500 text-neutral-0 dark:bg-primary-500 rounded-2xl"
-      : "flex items-center justify-center bg-primary-500 text-neutral-0 dark:bg-primary-500 rounded-l-2xl"}}`;
+        ? "flex items-center justify-center bg-primary-500 text-neutral-0 dark:bg-primary-500 rounded-2xl"
+        : "flex items-center justify-center bg-primary-500 text-neutral-0 dark:bg-primary-500 rounded-l-2xl"}}`;
 
   // Define the whole vocabulary (project assigned or not (quickies)) for the language selected
   const language = useLanguage();
@@ -69,19 +69,19 @@ export default function GamePlay() {
   let myVocaFiltered;
   if (projectType === "allProjects") {
     myVocaFiltered = myVoca?.filter(
-      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   } else if (projectType === "singleProject") {
     myVocaFiltered = myVoca?.filter(
       (obj) =>
         obj.project_id &&
         obj.project_id === singleProjectId &&
-        !wordsIdsFilteredOut.includes(obj.id)
+        !wordsIdsFilteredOut.includes(obj.id),
     );
   } else {
     // Quickies
     myVocaFiltered = myVoca?.filter(
-      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id)
+      (obj) => !obj.project_id && !wordsIdsFilteredOut.includes(obj.id),
     );
   }
 
@@ -194,10 +194,10 @@ export default function GamePlay() {
             >{`${progressPercent} %`}</ScoreBar>
           </ScoreBarContainer>
 
-          <div className="flex items-center justify-center text-4xl mt-6">
+          <div className="flex items-center justify-center text-xl md:text-2xl mt-6">
             <span className="font-semibold mr-2">{wordIncrement}</span>/{" "}
             {totalWords}
-            <span className="text-2xl ml-4"> words</span>
+            <span className="text-lg md:text-xl ml-4"> words</span>
           </div>
         </ProgressContainer>
 
@@ -211,7 +211,7 @@ export default function GamePlay() {
           isLearningLanguage={isLearningLanguage}
         />
 
-        <div className="flex items-center justify-center gap-16 p-4">
+        <div className="flex items-center justify-center gap-16 px-4 py-0">
           <button onClick={() => validate(0)}>
             <SadFace size="56" filled={true} />
           </button>
