@@ -45,11 +45,8 @@ const Button = styled.button`
   }
 
   & svg {
-    width: 2.4rem;
-    height: 2.4rem;
-    /* Sometimes we need both */
-    /* fill: var(--color-grey-500);
-    stroke: var(--color-grey-500); */
+    width: 1.8rem;
+    height: 1.8rem;
     color: var(--color-grey-500);
   }
 `;

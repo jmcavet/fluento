@@ -19,7 +19,7 @@ import { useVocaFilterContext } from "../../contexts/VocaFilterContext";
 import { useVocabularyPerUser } from "../vocabularies/useVocabulary";
 import WordsFilter from "../../ui/WordsFilter";
 
-const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 flex flex-col gap-3 rounded-b-[2rem] dark:rounded-none`;
+const MainContainer = tw.div`sticky top-0 w-full bg-primary-500 dark:bg-neutral-900 px-4 flex flex-col <gap-4></gap-4> rounded-b-[2rem] dark:rounded-none`;
 const LanguageAndFilterContainer = tw.div`flex items-center justify-between`;
 const LanguageSelectionContainer = tw.div`flex items-center justify-center px-4 mx-auto mt-2 mb-3 rounded-xl w-fit`;
 const ProjectSelectionContainer = tw.div`flex items-center justify-between rounded-xl px-4 py-2`;
@@ -372,21 +372,23 @@ export default function DictionaryHeader({ languageNames }) {
             />
           </FlagButton>
 
-          <SearchBar
-            isFocused={isFocused}
-            setIsFocused={setIsFocused}
-            wordSearched={wordSearched}
-            handleOnChange={(e) =>
-              dispatchDictionary({
-                type: "word/searched",
-                payload: e.target.value,
-              })
-            }
-          />
+          <div className="flex justify-between items-center gap-2">
+            <SearchBar
+              isFocused={isFocused}
+              setIsFocused={setIsFocused}
+              wordSearched={wordSearched}
+              handleOnChange={(e) =>
+                dispatchDictionary({
+                  type: "word/searched",
+                  payload: e.target.value,
+                })
+              }
+            />
 
-          <NbWordsFiltered>{words.length}</NbWordsFiltered>
+            <NbWordsFiltered>{words.length}</NbWordsFiltered>
+          </div>
 
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center justify-between gap-1">
             <div
               className="flex items-center text-neutral-0 dark:text-primary-500"
               onClick={handleSortDate}
