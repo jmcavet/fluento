@@ -80,7 +80,7 @@ export default function DictionaryHeader({ languageNames }) {
     projectType === "singleProject"
       ? styleProjectSelected
       : styleProjectContainer}
-      absolute -top-5 -right-9 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
+      absolute -top-5 -right-7 rounded-full border border-[1px] text-sm md:text-base p-2 flex items-center justify-center`;
 
   const QuickiesButton = tw.button`${(props) =>
     projectType === "quickies" ? styleProjectSelected : styleProjectNotSelected}

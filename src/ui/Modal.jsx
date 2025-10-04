@@ -5,15 +5,6 @@ import styled from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
 import tw from "tailwind-styled-components";
 
-// const StyledModal = styled.div`
-//   position: fixed;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   padding: 2rem 1rem;
-//   transition: all 0.5s;
-// `;
-
 const StyledModal = tw.div`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 
          w-11/12 max-w-3xl p-4 transition-all duration-500 bg-white rounded-lg shadow-lg`;
 

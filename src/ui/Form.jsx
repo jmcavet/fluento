@@ -6,7 +6,7 @@ const Form = styled.form`
     css`
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 2.4rem;
       padding: 2.4rem 2rem;
 
       /* Box */

@@ -81,9 +81,9 @@ export function App() {
             success: { duration: 2000 },
             error: { duration: 2000 },
             style: {
-              fontSize: "1.6rem",
-              maxWidth: "50rem",
-              padding: "1.6rem 2.4rem",
+              fontSize: "1.2rem",
+              maxWidth: "40rem",
+              padding: "1.2rem 1.8rem",
               backgroundColor: "var(--color-grey-0)",
               color: "var(--color-grey-800)",
             },
