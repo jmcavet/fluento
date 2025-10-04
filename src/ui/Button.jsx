@@ -11,7 +11,7 @@ const variations = {
   primary: "bg-primary-500 text-neutral-0 hover:bg-primary-600",
   primaryOutlined:
     "bg-transparent border-[1px] border-neutral-300 hover:opacity-80",
-  accent: "bg-warning-500 text-neutral-0 hover:bg-warning-600",
+  accent: "bg-accent-500 text-neutral-0 hover:bg-warning-600",
   danger:
     "bg-error-500 text-neutral-0 hover:bg-error-600 dark:bg-error-500 dark:hover:bg-error-500",
   dangerOutlined:

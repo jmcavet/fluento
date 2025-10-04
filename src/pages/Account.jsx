@@ -18,23 +18,25 @@ function Account() {
   };
 
   return (
-    <div className="h-full m-8 flex flex-col items-center justify-around">
-      <Heading as="h1">Update your account</Heading>
+    <div className="h-full flex flex-col items-center justify-around">
+      <Heading as="h1" className="dark:text-neutral-0">
+        Update your account
+      </Heading>
 
       <Row>
-        <Heading as="h3">Update user data</Heading>
+        {/* <Heading as="h3">Update user data</Heading> */}
         <UpdateUserDataForm />
       </Row>
 
-      <Row>
+      {/* <Row>
         <Heading as="h3">Update password</Heading>
-        {/* <UpdatePasswordForm /> */}
-      </Row>
+        <UpdatePasswordForm />
+      </Row> */}
 
       <Row>
         <Button
           size="medium"
-          variation="primary"
+          variation="accent"
           disabled={isPending}
           onClick={handleLogout}
         >

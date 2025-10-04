@@ -16,13 +16,12 @@ function UpdateUserDataForm() {
 
   const { user } = useUser();
 
-  console.log("USER: ", user);
   //   const { updateUser, isUpdating } = useUpdateUser();
   const isUpdating = false;
   const email = user.email;
 
   //   const [fullName, setFullName] = useState(currentFullName);
-  const [fullName, setFullName] = useState("Username");
+  const [fullName, setFullName] = useState("");
 
   //   function handleSubmit(e) {
   //     e.preventDefault();
@@ -37,15 +36,15 @@ function UpdateUserDataForm() {
   //     );
   //   }
 
-  function handleCancel() {
-    setFullName("...");
-  }
-
   return (
     // <Form onSubmit={handleSubmit}>
-    <Form>
+    <Form className="bg-neutral-0 dark:bg-neutral-900">
       <FormRow label="Email address">
-        <Input value={email} disabled />
+        <Input
+          value={email}
+          disabled
+          className="dark:bg-neutral-800 dark:text-neutral-0"
+        />
       </FormRow>
 
       <FormRow label="Full name">
@@ -54,19 +53,12 @@ function UpdateUserDataForm() {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           id="fullName"
+          className="dark:bg-neutral-800 dark:text-neutral-0"
           //   disabled={isUpdating}
         />
       </FormRow>
 
       <FormRow>
-        <Button
-          type="reset"
-          variation="primaryOutlined"
-          disabled={isUpdating}
-          onClick={handleCancel}
-        >
-          Cancel
-        </Button>
         <Button disabled={isUpdating}>Update</Button>
       </FormRow>
     </Form>

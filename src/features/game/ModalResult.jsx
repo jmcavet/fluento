@@ -35,7 +35,7 @@ const Overlay = styled.div`
   transition: all 0.5s;
 `;
 
-const MainContainer = tw.div`flex flex-col items-center justify-center gap-16 w-[35rem] p-6 rounded-xl text-2xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
+const MainContainer = tw.div`flex flex-col items-center justify-center gap-12 p-6 rounded-xl text-2xl bg-neutral-0 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200`;
 const Header = tw.div`flex flex-col items-center justify-center gap-8`;
 const Title = tw.p`text-4xl`;
 const Message = tw.div`text-3xl mt-6 flex items-center justify-between gap-6`;
@@ -97,8 +97,8 @@ export default function ModalResult({
                 {scoreLive > 66
                   ? "Congratulations!"
                   : scoreLive < 33
-                  ? "Oh noooo!"
-                  : "You can do better!"}
+                    ? "Oh noooo!"
+                    : "You can do better!"}
               </Message>
               <div className="text-4xl font-semibold flex items-center justify-between gap-6">
                 <span className="text-success-500">
