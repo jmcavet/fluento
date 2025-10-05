@@ -18,8 +18,8 @@ const CatchPhrase = tw.p`text-3xl leading-tight font-bold text-center px-8 mb-4 
 const Message = tw.p`text-lg text-center leading-relaxed md:text-xl md:mt-6`;
 
 const MainSections = tw.div`flex flex-col mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8`;
-const Section = tw.div`py-8`;
-const SectionContent = tw.div`flex flex-col items-center gap-8 sm:flex-row sm:gap-12`;
+const Section = tw.div`py-6`;
+const SectionContent = tw.div`flex flex-col items-center gap-0 sm:flex-row sm:gap-12`;
 const SectionHeader = tw.h2`text-2xl font-bold mb-4 tracking-tight leading-snug md:text-3xl lg:text-4xl`;
 const SectionParagraph = tw.div`text-base leading-relaxed md:text-lg lg:text-xl`;
 
@@ -27,7 +27,7 @@ const SectionImageContainer = tw.div`w-full sm:w-1/2 flex justify-center`;
 const SectionImage = tw.img`w-full max-w-sm rounded-xl`;
 
 const SectionMessageContainer = tw.div`w-full sm:w-1/2 text-left sm:text-left`;
-const SectionMessageTitle = tw.h2`text-2xl font-bold tracking-tight text-gray-900 md:text-3xl lg:text-4xl`;
+const SectionMessageTitle = tw.h2`bg-primary-200 text-gray-900 text-2xl md:text-3xl lg:text-4xl p-2 font-bold tracking-tight rounded-tl-2xl rounded-br-2xl`;
 const SectionMessageText = tw.p`mt-3 text-base text-gray-600 leading-relaxed md:text-lg lg:text-xl`;
 
 const Footer = tw.div`bg-neutral-900 text-neutral-0 text-sm text-center h-20 p-8`;
@@ -57,8 +57,11 @@ export default function LandingPage() {
       <HeroContainer>
         <Hero>
           <CatchPhrase>
-            With <span className="font-bold text-primary-800">FluentO</span>,
-            learn foreign languages with
+            With{" "}
+            <span className="font-bold bg-gradient-to-r from-primary-500 via-primary-500 to-accent-500 bg-clip-text text-transparent">
+              FluentO
+            </span>
+            , learn foreign languages with
             <span className="text-primary-500 mx-2 font-bold">context</span>
           </CatchPhrase>
           <Message>
@@ -146,7 +149,7 @@ export default function LandingPage() {
           <SectionContent>
             <SectionMessageContainer className="sm:order-2">
               <SectionMessageTitle>
-                Save the words that matter to you
+                Search and manage your words
               </SectionMessageTitle>
               <SectionMessageText>
                 Browse, search, and filter all your saved words. Your own
