@@ -11,7 +11,7 @@ export default function Languages({
   const filteredLanguages = getFilteredLanguages(searchLanguage);
 
   return (
-    <div className="max-w-6xl">
+    <div className="w-full text-xl md:text-2xl">
       {filteredLanguages.map((language) => (
         <Language
           language={language}

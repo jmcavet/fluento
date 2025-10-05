@@ -63,7 +63,9 @@ const ProjectSetup = () => {
         )}
       </>
 
-      <div className={`${title ? "overflow-scroll" : ""}`}>
+      <div
+        className={`${title ? "flex flex-col items-center max-w-3xl mx-auto w-full" : ""}`}
+      >
         {totalSteps === 3 && (currentStep === 1 || currentStep === 2) && (
           <LanguageSelection
             title={title}
