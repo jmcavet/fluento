@@ -22,7 +22,7 @@ export default function ProjectInputs() {
   const handleCreateProject = () => {
     // Check if a project already exists with the same name provided by user
     const userProjectsDuplicates = projects?.filter(
-      (project) => project.user_id === user.id && project.name === name
+      (project) => project.user_id === user.id && project.name === name,
     );
 
     if (userProjectsDuplicates.length > 0) {
@@ -66,7 +66,7 @@ export default function ProjectInputs() {
         <input
           type="text"
           id="project-name"
-          className="block p-4 pl-16 w-[20rem] sm:w-[30rem] md:w-[45rem] lg:w-[60rem] text-2xl rounded-lg bg-neutral-100 border border-neutral-300 placeholder-neutral-600 focus:bg-primary-100 dark:bg-neutral-800 dark:placeholder-neutral-400 dark:focus:bg-primary-800"
+          className="block p-4 w-[20rem] sm:w-[30rem] md:w-[45rem] lg:w-[60rem] text-2xl rounded-lg bg-neutral-100 border border-neutral-300 placeholder-neutral-300 focus:bg-primary-100 dark:bg-neutral-800 dark:placeholder-neutral-400 dark:focus:bg-primary-800"
           placeholder="Name"
           autoComplete="off"
           autoFocus
@@ -77,7 +77,7 @@ export default function ProjectInputs() {
         <input
           type="text"
           id="project-description"
-          className="block p-4 pl-16 w-[20rem] sm:w-[30rem] md:w-[45rem] lg:w-[60rem] text-2xl rounded-lg bg-neutral-100 border border-neutral-300 placeholder-neutral-600 focus:bg-primary-100 dark:bg-neutral-800 dark:placeholder-neutral-400 dark:focus:bg-primary-800"
+          className="block p-4 w-[20rem] sm:w-[30rem] md:w-[45rem] lg:w-[60rem] text-2xl rounded-lg bg-neutral-100 border border-neutral-300 placeholder-neutral-300 focus:bg-primary-100 dark:bg-neutral-800 dark:placeholder-neutral-400 dark:focus:bg-primary-800"
           placeholder="Description"
           autoComplete="off"
           required

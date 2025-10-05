@@ -19,7 +19,7 @@ export default function Language({
 
   return (
     <li
-      className="flex items-center justify-between py-6 m-4 border-b border-slate-300"
+      className="flex items-center justify-between py-4 m-4 border-b border-slate-300 cursor-pointer hover:bg-primary-200 hover:dark:bg-primary-700"
       onClick={() => {
         setLanguageSelected(language.name);
         setSearchLanguage("");
@@ -31,7 +31,7 @@ export default function Language({
     >
       <div>{language.name}</div>
       <div>
-        <Flag country={language.countryCode} size={24} />
+        <Flag country={language.countryCode} size={40} />
       </div>
     </li>
   );
