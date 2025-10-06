@@ -20,8 +20,7 @@ const Message = tw.p`text-lg text-center leading-relaxed md:text-xl md:mt-6`;
 const MainSections = tw.div`flex flex-col mx-auto w-full max-w-5xl px-4 pb-16 sm:px-6 lg:px-8`;
 const Section = tw.div`py-6`;
 const SectionContent = tw.div`flex flex-col items-center gap-0 sm:flex-row sm:gap-12`;
-const SectionHeader = tw.h2`text-2xl font-bold mb-4 tracking-tight leading-snug md:text-3xl lg:text-4xl`;
-const SectionParagraph = tw.div`text-base leading-relaxed md:text-lg lg:text-xl`;
+const AnimationHeader = tw.h2`text-2xl font-bold mb-8 md:text-3xl lg:text-4xl`;
 
 const SectionImageContainer = tw.div`w-full sm:w-1/2 flex justify-center`;
 const SectionImage = tw.img`w-full max-w-sm rounded-xl`;
@@ -29,6 +28,7 @@ const SectionImage = tw.img`w-full max-w-sm rounded-xl`;
 const SectionMessageContainer = tw.div`w-full sm:w-1/2 text-left sm:text-left`;
 const SectionMessageTitle = tw.h2`bg-primary-200 text-gray-900 text-2xl md:text-3xl lg:text-4xl p-2 font-bold tracking-tight rounded-tl-2xl rounded-br-2xl`;
 const SectionMessageText = tw.p`mt-3 text-base text-gray-600 leading-relaxed md:text-lg lg:text-xl`;
+const AnimationVideo = tw.video`rounded-xl shadow-lg w-full h-auto`;
 
 const Footer = tw.div`bg-neutral-900 text-neutral-0 text-sm text-center h-20 p-8`;
 
@@ -163,15 +163,19 @@ export default function LandingPage() {
           </SectionContent>
         </Section>
 
-        <Section className="bg-primary-500">
-          <SectionContent>
-            <SectionHeader className="text-primary-300">
-              See by yourself!
-            </SectionHeader>
-            <SectionParagraph className="text-neutral-0">
-              Gif of the application...
-            </SectionParagraph>
-          </SectionContent>
+        <Section className="flex flex-col items-center">
+          <AnimationHeader>
+            Discover the <span className="text-3xl md:text-4xl">FluentO</span>{" "}
+            experience <i>!</i>
+          </AnimationHeader>
+
+          <AnimationVideo
+            src="/src/assets/animations/application_animation.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
         </Section>
       </MainSections>
 
