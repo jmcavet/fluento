@@ -170,7 +170,7 @@ export default function LandingPage() {
           </AnimationHeader>
 
           <AnimationVideo
-            src="/src/assets/animations/application_animation.mp4"
+            src="/animations/application_animation.mp4"
             autoPlay
             loop
             muted
