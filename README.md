@@ -46,6 +46,10 @@ Create your brand/logo in Figma.
 6. Using the icon-192x192.png image, create the favicon-16x16.png, favicon-32x32.png, and favicon.ico files (use for instance [favicon.io](https://favicon.io/favicon-converter/))
 7. When you build your project ($> npm run build), they will be copied into the 'dist' directory
 
+## Animations
+
+Use mp4 rather than gif files. Place your files into the public directory (not under src).
+
 ## Tech Stack
 
 - Figma for the UI/UX design
